@@ -31,6 +31,11 @@
  
 
 /// ans
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
 class Solution {
 public:
     int minimumTotal(vector<vector<int>>& t) {
@@ -46,3 +51,16 @@ public:
         return *min_element(dp.begin(), dp.end());
     }
 };
+
+int main() {
+    Solution sol;
+    vector<vector<int>> triangle = {
+        {2},
+        {3,4},
+        {6,5,7},
+        {4,1,8,3}
+    };
+    int result = sol.minimumTotal(triangle);
+    cout << "Minimum path sum: " << result << endl; // Output: 11
+    return 0;
+}
