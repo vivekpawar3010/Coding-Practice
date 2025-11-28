@@ -51,3 +51,10 @@ class Solution {
         return 0;
     }
 }
+
+int main() {
+    Solution sol;
+    vector<int> citations = {3,0,6,1,5};
+    int result = sol.hIndex(citations);
+    return 0;
+}
