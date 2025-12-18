@@ -71,11 +71,23 @@ class Solution {
     }
 }
 
-public class _17_DECleetcodequest {
+public class 17_DEC_questleetcode {
     public static void main(String[] args) {
         Solution sol = new Solution();
-        String[] tokens = {"2","1","+","3","*"};
-        int result = sol.evalRPN(tokens);
-        System.out.println("Result: " + result); // Output: 9
+        
+        // Test Case 1
+        String[] tokens1 = {"2","1","+","3","*"};
+        System.out.println("Test 1 - Input: [\"2\",\"1\",\"+\",\"3\",\"*\"]");
+        System.out.println("Output: " + sol.evalRPN(tokens1)); // Output: 9
+        
+        // Test Case 2
+        String[] tokens2 = {"4","13","5","/","+"};
+        System.out.println("\nTest 2 - Input: [\"4\",\"13\",\"5\",\"/\",\"+\"]");
+        System.out.println("Output: " + sol.evalRPN(tokens2)); // Output: 6
+        
+        // Test Case 3
+        String[] tokens3 = {"10","6","9","3","+","-11","*","/","*","17","+","5","+"};
+        System.out.println("\nTest 3 - Input: [\"10\",\"6\",\"9\",\"3\",\"+\",\"-11\",\"*\",\"/\",\"*\",\"17\",\"+\",\"5\",\"+\"]");
+        System.out.println("Output: " + sol.evalRPN(tokens3)); // Output: 22
     }
 }
