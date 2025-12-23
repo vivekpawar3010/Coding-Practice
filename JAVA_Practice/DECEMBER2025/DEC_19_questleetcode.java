@@ -40,7 +40,7 @@ class Solution {
     }
 }
 
-public class 19_DEC_questleetcode {
+public class DEC_19_questleetcode {
     public static void main(String[] args) {
         Solution sol = new Solution();
         int n = 4;

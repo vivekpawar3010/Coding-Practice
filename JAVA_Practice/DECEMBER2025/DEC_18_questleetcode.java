@@ -64,7 +64,7 @@ class Solution {
 }
 
 
-public class 18_DEC_questleetcode {
+public class DEC_18_questleetcode {
     public static void main(String[] args) {
         Solution sol = new Solution();
         
