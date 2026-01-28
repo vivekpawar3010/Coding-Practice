@@ -55,7 +55,7 @@ class Solution {
     }
 }
 
-public class 28_JAN_leetCode {
+public class JAN_28_leetCode {
     public static void main(String args[]){
         Solution sol = new Solution();
         int nums[] = {3,9,7};
