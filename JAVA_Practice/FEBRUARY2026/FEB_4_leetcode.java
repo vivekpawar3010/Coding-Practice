@@ -64,7 +64,7 @@ class Solution {
         return result;
     }
 }
-public class FEB_4_leetcode {
+public class FEB_4_leetCode {
     public static void main(String[] args) {
         Solution sol = new Solution();
         String[] operations = {"--X","X++","X++"};
