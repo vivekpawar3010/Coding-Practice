@@ -58,5 +58,4 @@ public class FEB_18_leetCode {
         System.out.println(sol.hasAlternatingBits(7)); // Output: false
         System.out.println(sol.hasAlternatingBits(11)); // Output: false
     }
-
 }
