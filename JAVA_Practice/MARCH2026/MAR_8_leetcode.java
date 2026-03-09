@@ -59,5 +59,8 @@ public class MAR_8_leetCode {
         String[] names = { "Mary", "John", "Emma" };
         int[] heights = { 180, 165, 170 };
         System.out.println(Arrays.toString(sol.sortPeople(names, heights))); // Output: ["Mary","Emma","John"]
+        int a = -6, b = -5;
+        System.out.println(b % 5);
+
     }
 }
