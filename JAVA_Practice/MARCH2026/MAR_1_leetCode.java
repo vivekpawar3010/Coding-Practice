@@ -1,4 +1,4 @@
-package JAVA_Practice.MARCH2026;
+// package JAVA_Practice.MARCH2026;
 // 3498. Reverse Degree of a String
 
 // Solved
@@ -64,7 +64,7 @@ class Solution {
     }
 }
 
-public class March_1_leetCode {
+public class MAR_1_leetCode {
     public static void main(String[] args) {
         Solution sol = new Solution();
         String s = "abc";

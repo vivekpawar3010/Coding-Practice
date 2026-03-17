@@ -29,8 +29,6 @@
 // }
 // If all assertions pass, then your solution will be accepted.
 
- 
-
 // Example 1:
 
 // Input: nums = [3,2,2,3], val = 3
@@ -47,8 +45,8 @@
 class Solution {
     public int removeElement(int[] nums, int val) {
         int k = 0;
-        for(int i = 0; i < nums.length; i++){
-            if(nums[i] != val){
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) {
                 nums[k] = nums[i];
                 k++;
             }
@@ -60,11 +58,11 @@ class Solution {
 public class DEC_30_topinterviewLeetcode {
     public static void main(String[] args) {
         Solution sol = new Solution();
-        int[] nums1 = {3, 2, 2, 3};
+        int[] nums1 = { 3, 2, 2, 3 };
         int val1 = 3;
         System.out.println(sol.removeElement(nums1, val1)); // Expected output: 2
 
-        int[] nums2 = {0, 1, 2, 2, 3, 0, 4, 2};
+        int[] nums2 = { 0, 1, 2, 2, 3, 0, 4, 2 };
         int val2 = 2;
         System.out.println(sol.removeElement(nums2, val2)); // Expected output: 5
     }

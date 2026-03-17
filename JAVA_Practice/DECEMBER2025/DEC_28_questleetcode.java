@@ -12,7 +12,6 @@
 // boolean transfer(int account1, int account2, long money) Transfers money dollars from the account numbered account1 to the account numbered account2. Return true if the transaction was successful, false otherwise.
 // boolean deposit(int account, long money) Deposit money dollars into the account numbered account. Return true if the transaction was successful, false otherwise.
 // boolean withdraw(int account, long money) Withdraw money dollars from the account numbered account. Return true if the transaction was successful, false otherwise.
- 
 
 // Example 1:
 
@@ -33,7 +32,6 @@
 // bank.transfer(3, 4, 15); // return false, the current balance of account 3 is $10,
 //                          // so it is invalid to transfer $15 from it.
 // bank.withdraw(10, 50);   // return false, it is invalid because account 10 does not exist.
- 
 
 // Constraints:
 
@@ -42,9 +40,7 @@
 // 0 <= balance[i], money <= 1012
 // At most 104 calls will be made to each function transfer, deposit, withdraw.
 
-import java.util.*;
-import java.lang.*;
-import java.io.*;
+// import java.util.*;
 
 class Bank {
     private long[] balance;
@@ -54,60 +50,59 @@ class Bank {
         this.balance = balance;
         this.n = balance.length;
     }
-    
+
     public boolean transfer(int account1, int account2, long money) {
         // Check if both accounts are valid
         if (account1 < 1 || account1 > n || account2 < 1 || account2 > n) {
             return false;
         }
-        
+
         // Check if account1 has enough balance
         if (balance[account1 - 1] < money) {
             return false;
         }
-        
+
         // Perform transfer
         balance[account1 - 1] -= money;
         balance[account2 - 1] += money;
         return true;
     }
-    
+
     public boolean deposit(int account, long money) {
         // Check if account is valid
         if (account < 1 || account > n) {
             return false;
         }
-        
+
         balance[account - 1] += money;
         return true;
     }
-    
+
     public boolean withdraw(int account, long money) {
         // Check if account is valid
         if (account < 1 || account > n) {
             return false;
         }
-        
+
         // Check if sufficient balance exists
         if (balance[account - 1] < money) {
             return false;
         }
-        
+
         balance[account - 1] -= money;
         return true;
     }
 }
 
-
 public class DEC_28_questleetcode {
     public static void main(String[] args) {
-        long[] initialBalances = {10, 100, 20, 50, 30};
+        long[] initialBalances = { 10, 100, 20, 50, 30 };
         Bank bank = new Bank(initialBalances);
-        
-        System.out.println(bank.withdraw(3, 10));    // true
+
+        System.out.println(bank.withdraw(3, 10)); // true
         System.out.println(bank.transfer(5, 1, 20)); // true
-        System.out.println(bank.deposit(5, 20));     // true
+        System.out.println(bank.deposit(5, 20)); // true
         System.out.println(bank.transfer(3, 4, 15)); // false
-        System.out.println(bank.withdraw(10, 50));   // false
+        System.out.println(bank.withdraw(10, 50)); // false
     }
 }
