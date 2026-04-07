@@ -47,7 +47,7 @@ public class APR_6_leetCode {
         Solution sol = new Solution();
         int n = 10;
         System.out.println(sol.sumOfMultiples(n));
-        // output: 40
+        // output: 40AN
     }
 }
  
