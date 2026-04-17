@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Map API Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            max-width: 800px;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+        .output-box {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Testing JavaScript "Map"</h1>
+    <p>Press <strong>F12</strong> to open your browser's Developer Tools and look at the Console for extra output!</p>
+
+    <h2>1. Array.prototype.map()</h2>
+    <p>This takes an original array, applies a function to every item, and returns a <em>new</em> array.</p>
+    
+    <div class="output-box">
+        <strong>Original Array:</strong> <span id="array-original"></span><br><br>
+        <strong>Mapped Array (multiplied by 2):</strong> <span id="array-mapped"></span>
+    </div>
+
+    <h2>2. The Map Object (Key-Value Pairs)</h2>
+    <p>This is a data structure that allows you to store key-value pairs and remember the original insertion order of the keys.</p>
+    
+    <div class="output-box">
+        <strong>Map Output:</strong> <br>
+        <pre id="object-map-output"></pre>
+    </div>
+
+    <script>
+        // ==========================================
+        // TEST 1: Array.map()
+        // ==========================================
+        
+        const originalNumbers = [10, 20, 30, 40];
+        
+        // Use map() to multiply each number by 2
+        const doubledNumbers = originalNumbers.map(function(num) {
+            return num * 2;
+        });
+
+        // Display the results on the HTML page
+        document.getElementById('array-original').innerText = JSON.stringify(originalNumbers);
+        document.getElementById('array-mapped').innerText = JSON.stringify(doubledNumbers);
+        
+        // Log to console
+        console.log("Array.map() Results:");
+        console.log("Original:", originalNumbers);
+        console.log("Doubled:", doubledNumbers);
+
+
+        // ==========================================
+        // TEST 2: The Map Object
+        // ==========================================
+        
+        // Create a new Map
+        const userRoles = new Map();
+        
+        // Add data using .set(key, value)
+        userRoles.set('alice123', 'Admin');
+        userRoles.set('bob456', 'Editor');
+        userRoles.set('charlie789', 'Viewer');
+
+        let mapOutputText = "";
+        
+        // Read data using .get(key)
+        mapOutputText += "Alice's Role: " + userRoles.get('alice123') + "\n\n";
+
+        // Loop through the Map using .forEach()
+        mapOutputText += "All Users in Map:\n";
+        userRoles.forEach(function(role, username) {
+            mapOutputText += `- Username: ${username} | Role: ${role}\n`;
+        });
+
+        // Display on page
+        document.getElementById('object-map-output').innerText = mapOutputText;
+
+        // Log to console
+        console.log("\nMap Object Results:");
+        console.log("Map Size:", userRoles.size);
+        console.log(userRoles);
+    </script>
+</body>
+</html>
