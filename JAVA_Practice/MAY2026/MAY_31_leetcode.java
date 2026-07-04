@@ -1,0 +1,26 @@
+public class MAY_31_leetcode {
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        String s = "string";
+
+        String result = sol.finalString(s);
+        System.out.println("Result: " + result);
+    }
+}
+
+class Solution {
+    public String finalString(String s) {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (ch == 'i') {
+                sb.reverse();
+            } else {
+                sb.append(ch);
+            }
+        }
+
+        return sb.toString();
+    }
+}
