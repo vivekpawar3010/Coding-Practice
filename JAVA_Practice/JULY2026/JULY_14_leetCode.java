@@ -1,72 +1,81 @@
-// 3019. Number of Changing Keys
+// 724. Find Pivot Index
 // Solved
 // Easy
 // Topics
 // premium lock icon
 // Companies
 // Hint
-// You are given a 0-indexed string s typed by a user. Changing a key is defined as using a key different from the last used key. For example, s = "ab" has a change of a key while s = "bBBb" does not have any.
+// Given an array of integers nums, calculate the pivot index of this array.
 
-// Return the number of times the user had to change the key.
+// The pivot index is the index where the sum of all the numbers strictly to the left of the index is equal to the sum of all the numbers strictly to the index's right.
 
-// Note: Modifiers like shift or caps lock won't be counted in changing the key that is if a user typed the letter 'a' and then the letter 'A' then it will not be considered as a changing of key.
+// If the index is on the left edge of the array, then the left sum is 0 because there are no elements to the left. This also applies to the right edge of the array.
+
+// Return the leftmost pivot index. If no such index exists, return -1.
 
  
 
 // Example 1:
 
-// Input: s = "aAbBcC"
-// Output: 2
-// Explanation: 
-// From s[0] = 'a' to s[1] = 'A', there is no change of key as caps lock or shift is not counted.
-// From s[1] = 'A' to s[2] = 'b', there is a change of key.
-// From s[2] = 'b' to s[3] = 'B', there is no change of key as caps lock or shift is not counted.
-// From s[3] = 'B' to s[4] = 'c', there is a change of key.
-// From s[4] = 'c' to s[5] = 'C', there is no change of key as caps lock or shift is not counted.
-
+// Input: nums = [1,7,3,6,5,6]
+// Output: 3
+// Explanation:
+// The pivot index is 3.
+// Left sum = nums[0] + nums[1] + nums[2] = 1 + 7 + 3 = 11
+// Right sum = nums[4] + nums[5] = 5 + 6 = 11
 // Example 2:
 
-// Input: s = "AaAaAaaA"
+// Input: nums = [1,2,3]
+// Output: -1
+// Explanation:
+// There is no index that satisfies the conditions in the problem statement.
+// Example 3:
+
+// Input: nums = [2,1,-1]
 // Output: 0
-// Explanation: There is no change of key since only the letters 'a' and 'A' are pressed which does not require change of key.
+// Explanation:
+// The pivot index is 0.
+// Left sum = 0 (no elements to the left of index 0)
+// Right sum = nums[1] + nums[2] = 1 + -1 = 0
  
 
 // Constraints:
 
-// 1 <= s.length <= 100
-// s consists of only upper case and lower case English letters.
-
+// 1 <= nums.length <= 104
+// -1000 <= nums[i] <= 1000
+ 
 
 class Solution {
-    public int countKeyChanges(String s) {
-        if (s == null || s.length() <= 1) return 0;
-        
-        int diff = 0;
-        char[] chArr = s.toCharArray();
-        
-        for (int i = 1; i < chArr.length; i++) {
-            int isit = abs(chArr[i] - chArr[i - 1]);
-            
-            if (isit != 0 && isit != 32) {
-                diff++;
-            }
+    public int pivotIndex(int[] nums) {
+        int n = nums.length;
+        if(n == 0) return -1;
+        if(n == 1) return 0;
+        int lsum = 0;
+        int num = nums[0];
+        int rsum = nums[1];
+        if(n == 2){
+            if(lsum == rsum) return 0;
+            return -1;
+        }
+        for(int i = 2; i < n; i++){
+            rsum += nums[i];
         }
 
-        return diff;
-    }
-
-    private int abs(int n) {
-        return n > 0 ? n : -n;
+        for(int i = 0; i < n - 1; i++){
+            if(lsum == rsum) return i;
+            lsum += nums[i];
+            rsum -= nums[i + 1];
+        }
+        if(lsum == rsum) return n-1;
+        return -1;
     }
 }
 
-
-public class JULY_13_leetcode {
+public class JULY_14_leetCode {
     public static void main(String[] args) {
         Solution sol = new Solution();
-        int result = sol.countKeyChanges("aAbBcC");
-        System.out.println(result); // Output: 2
-        int result2 = sol.countKeyChanges("AaAaAaaA");
-        System.out.println(result2); // Output: 0
+        int[] nums = {1,7,3,6,5,6};
+        int result = sol.pivotIndex(nums);
+        System.out.println(result); // Output: 3
     }
 }
